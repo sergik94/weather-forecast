@@ -1,0 +1,15 @@
+._container {
+  max-width: 1170px + 2 * 40px;
+  width: 100%;
+  padding: 0 40px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @media (max-width: 830px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 680px) {
+    padding: 0 15px;
+  }
+}

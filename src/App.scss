@@ -1,0 +1,53 @@
+@import './assets/styles/utils/reset.scss';
+@import './assets/styles/utils/variables.scss';
+@import './assets/styles/utils/typography.scss';
+@import './assets/styles/utils/support.scss';
+
+@import './assets/styles/blocks/auth.scss';
+@import './assets/styles/blocks/serchbox.scss';
+@import './assets/styles/blocks/inputfield.scss';
+@import './assets/styles/blocks/weekWeather.scss';
+@import './assets/styles/blocks/timer.scss';
+
+.app {
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    margin-bottom: 50px;
+  }
+
+  &__main {
+    flex-grow: 1;
+    display: flex;
+  }
+
+  &__leftside {
+    width: 65%;
+    margin-right: 40px;
+  }
+
+  &__rightside {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    margin-top: 50px;
+  }
+
+  @media (max-width: 980px) {
+    &__main {
+      display: block;
+    }
+
+    &__leftside {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+  }
+}

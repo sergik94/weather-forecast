@@ -1,0 +1,57 @@
+.dropdown {
+  position: relative;
+
+  &__button {
+    &:hover {
+      border-color: lightgrey;
+    }
+
+    &::after {
+      background: center / 80% no-repeat url('../../assets/images/icons/right-black.svg');
+      transform: rotate(90deg);
+    }
+
+    &--is-active {
+      &::after {
+        content: "";
+        background: center / 80% no-repeat url('../../assets/images/icons/right-black.svg');
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__list {
+    width: 100%;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    z-index: 2;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 0.3s;
+
+    &--is-active {
+      padding: 8px 0;
+      border: 1px solid gray;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      height: 32px * 5;
+      overflow-y: auto;
+    }
+  }
+
+  &__item {
+    height: 32px;
+    padding: 5px 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: gray;
+    cursor: pointer;
+
+    &:hover {
+      background-color: gray;
+      color: #fff;
+    }
+  }
+}

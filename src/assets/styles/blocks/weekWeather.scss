@@ -1,0 +1,77 @@
+.week-weather {
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: grid;
+    width: 100%;
+    gap: 40px 30px;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, 75px);
+    justify-items: center;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gray;
+  }
+
+  &__day {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  &__icon-container {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+  }
+
+  &__temp {
+    font-weight: 700;
+    position: relative;
+    padding-right: 6px;
+
+    &::after {
+      content: 'o';
+      position: absolute;
+      top: -3px;
+      right: 0;
+      font-size: 10px;
+    }
+  }
+
+  &__notification {
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    height: 125px;
+  }
+
+  &__loader {
+    position: relative;
+    height: 125px;
+  }
+
+  @media (max-width: 660px) {
+    &__list {
+      column-gap: 15px;
+      justify-content: center;
+    }
+  }
+}

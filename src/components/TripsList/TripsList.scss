@@ -1,0 +1,68 @@
+.trips {
+  &__list {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(16, 16, 126); 
+      border-radius: 4px;
+    }
+  }
+
+  &__card {
+    border: 1px solid #eee;
+    width: 170px;
+    margin-right: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    &--is-active {
+      border-color: #1360e7;
+    }
+
+    &--add {
+      border: none;
+      height: 150px;
+      background-color: #e3e6eb70;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 500;
+      margin-right: 0;
+    }
+  }
+
+  &__card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  &__card-info {
+    padding: 14px;
+  }
+
+  &__card-title {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  &__card-date {
+    font-size: 12px;
+    color: gray;
+  }
+}

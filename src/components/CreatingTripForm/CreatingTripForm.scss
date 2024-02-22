@@ -1,0 +1,133 @@
+.creating-trip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000007f;
+
+  &__container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+    background-color: #fff;
+  }
+
+  &__header {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 60px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    background: center / contain no-repeat url('../../assets/images/icons/Close.svg');
+  }
+
+  &__form {
+    padding: 0 20px 20px;
+  }
+
+  &__category-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__category-title {
+    margin-bottom: 10px;
+
+    &::before {
+      content: '*';
+      color: red;
+      padding-right: 3px;
+    }
+  }
+
+  &__error {
+    color: red;
+  }
+
+  &__dropdown {
+    margin-bottom: 20px;
+  }
+
+  &__date {
+    margin-bottom: 20px;
+
+    &::after {
+      background: center / 100% no-repeat url('../../assets/images/icons/calendar.svg');
+    }
+
+    input[type="date"] {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: transparent;
+
+      &:focus {
+        border: 1px solid #000;
+      }
+
+      &::-webkit-datetime-edit-fields-wrapper { display: none; }
+      &::-webkit-calendar-picker-indicator {
+        background: transparent;
+        bottom: 0;
+        color: transparent;
+        cursor: pointer;
+        height: auto;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: transparent;
+    transition: 0.3s;
+
+    &--cancel {
+      border: 1px solid lightgray;
+      margin-right: 5px;
+
+      &:hover {
+        border-color: #000;
+      }
+    }
+
+    &--save {
+      color: #fff;
+      background-color: #1360e7;
+      border: 1px solid #1360e7;
+
+      &:hover {
+        background-color: #fff;
+        color: #1360e7;
+      }
+    }
+  }
+}

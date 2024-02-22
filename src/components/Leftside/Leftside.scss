@@ -1,0 +1,60 @@
+.leftside {
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__scrollbuttons {
+    width: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+  }
+
+  &__scrollbutton {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    color: #000;
+    border: 1px solid #000;
+    background-color: #fff;
+    background: center / 50% no-repeat;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #000;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.3;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+
+    &--left {
+      background-image: url('../../assets/images/icons/left-black.svg');
+
+      &:hover {
+        background-image: url('../../assets/images/icons/left-white.svg');
+      }
+    }
+
+    &--right {
+      background-image: url('../../assets/images/icons/right-black.svg');
+
+      &:hover {
+        background-image: url('../../assets/images/icons/right-white.svg');
+      }
+    }
+  }
+
+  &__trips {
+    margin-bottom: 30px;
+  }
+}

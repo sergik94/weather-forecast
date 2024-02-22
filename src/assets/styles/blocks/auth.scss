@@ -1,0 +1,68 @@
+.auth {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: $darkBlue-bg-col;
+  display: flex;
+
+  &__window {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    background: transparent;
+    padding: 10px 40px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $darkBlue-bg-col;
+      color: #fff;
+    }
+
+    &--google {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background: center / contain no-repeat url("../../images/icons/google.svg");
+      }
+    }
+  }
+
+  &__or {
+    margin: 10px;
+    font-size: 16px;
+    color: gray;
+  }
+
+  &__notification {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: red;
+  }
+}
