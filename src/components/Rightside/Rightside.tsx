@@ -125,15 +125,40 @@ export const Rightside = () => {
         )}
 
         {currTrip && !isLoading && !isError && (
-          <div className="rightside__weather-data">
-            <img
-              src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-              alt={todayForecast?.days[0].icon}
-              className="rightside__weather-icon"
-            />
-            {todayForecast?.days[0].temp}
-            <span className="rightside__unit">C</span>
-          </div>
+          <>
+            <div className="rightside__weather-data">
+              <img
+                src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
+                alt={todayForecast?.days[0].icon}
+                className="rightside__weather-icon"
+              />
+              {todayForecast?.days[0].temp}
+              <span className="rightside__unit">C</span>
+            </div>
+
+            <div className="rightside__bg-icons-container">
+              <img
+                src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
+                alt=""
+                className="rightside__bg-icon rightside__bg-icon--1"
+              />
+              <img
+                src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
+                alt=""
+                className="rightside__bg-icon rightside__bg-icon--2"
+              />
+              <img
+                src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
+                alt=""
+                className="rightside__bg-icon rightside__bg-icon--3"
+              />
+              <img
+                src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
+                alt=""
+                className="rightside__bg-icon rightside__bg-icon--4"
+              />
+            </div>
+          </>
         )}
         <p className="rightside__city">{currTrip?.city.title}</p>
       </div>
@@ -150,29 +175,6 @@ export const Rightside = () => {
           );
         })}
       </ul>
-
-      <div className="rightside__bg-icons-container">
-        <img
-          src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-          alt=""
-          className="rightside__bg-icon rightside__bg-icon--1"
-        />
-        <img
-          src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-          alt=""
-          className="rightside__bg-icon rightside__bg-icon--2"
-        />
-        <img
-          src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-          alt=""
-          className="rightside__bg-icon rightside__bg-icon--3"
-        />
-        <img
-          src={`./images/weather-icons/${todayForecast?.days[0].icon}.svg`}
-          alt=""
-          className="rightside__bg-icon rightside__bg-icon--4"
-        />
-      </div>
     </div>
   );
 };
