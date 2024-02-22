@@ -8,15 +8,20 @@ import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
 import { auth, googleAuthProvider } from './api/firebase';
 import { AuthType } from './types/AuthType';
 import { TripsContext } from './components/TripsContextProvider/TripsContextProvider';
+import { Loader } from './components/Loader';
 
 function App() {
   const { setCurrTrip } = useContext(TripsContext);
   const [user, setUser] = useState<AuthType>(auth.currentUser);
   const [isLogInError, setLogInError] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   const googleLogIn = () => {
     setLogInError(false);
-    signInWithPopup(auth, googleAuthProvider).catch(() => setLogInError(true));
+    setLoading(true);
+    signInWithPopup(auth, googleAuthProvider)
+      .catch(() => setLogInError(true))
+      .finally(() => setLoading(false));
   };
 
   const logOut = async () => {
@@ -40,6 +45,7 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubscribe();
@@ -65,18 +71,25 @@ function App() {
   return (
     <div className="app__auth auth">
       <div className="auth__window">
-        <h2 className="auth__title">Welcome</h2>
-
-        <button
-          className="auth__button auth__button--google"
-          onClick={googleLogIn}
-        >
-          Sign in with Google
-        </button>
-        <p className="auth__or">or</p>
-        <button className="auth__button" onClick={guestLogIn}>
-          Continue like a guest
-        </button>
+        {isLoading ? (
+          <div>
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <h2 className="auth__title">Welcome</h2>
+            <button
+              className="auth__button auth__button--google"
+              onClick={googleLogIn}
+            >
+              Sign in with Google
+            </button>
+            <p className="auth__or">or</p>
+            <button className="auth__button" onClick={guestLogIn}>
+              Continue like a guest
+            </button>
+          </>
+        )}
 
         {isLogInError && (
           <p className="auth__notification">

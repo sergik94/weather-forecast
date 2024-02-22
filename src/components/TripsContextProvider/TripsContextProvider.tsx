@@ -11,9 +11,11 @@ interface ContextType {
 }
 
 const now = new Date();
-const currDate = getDateForCalendar(now);
+const currDate = getDateForCalendar(
+  new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2),
+);
 const dateInFiveDays = getDateForCalendar(
-  new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
+  new Date(now.getFullYear(), now.getMonth(), now.getDate() + 6),
 );
 
 const initialTrip = {

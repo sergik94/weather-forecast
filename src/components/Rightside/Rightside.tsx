@@ -4,6 +4,7 @@ import { TripsContext } from '../TripsContextProvider/TripsContextProvider';
 import { getTodayForecast } from '../../api/fetchData';
 import { Weather } from '../../types/Weather';
 import { Loader } from '../Loader';
+import { getDateForCalendar } from '../../features/getDateForCalendar';
 
 type Timer = {
   [key: string]: number;
@@ -80,15 +81,26 @@ export const Rightside = () => {
   };
 
   useEffect(() => {
-    getTripWeatherForecast();
-
     if (!currTrip) return;
 
-    const intervalId = setInterval(() => {
-      getTimerTime();
-    }, 1000);
+    getTripWeatherForecast();
 
-    return () => clearInterval(intervalId);
+    const now = getDateForCalendar(new Date());
+
+    if (now >= currTrip.from) {
+      setTimerTime({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
+    } else {
+      const intervalId = setInterval(() => {
+        getTimerTime();
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
   }, [currTrip]);
 
   return (
@@ -127,12 +139,16 @@ export const Rightside = () => {
       </div>
 
       <ul className="rightside__timer timer">
-        {Object.keys(timerTime).map((unit) => (
-          <li className="timer__item" key={unit}>
-            <span className="timer__value">{timerTime[unit]}</span>
-            {unit}
-          </li>
-        ))}
+        {Object.keys(timerTime).map((unit) => {
+          if (timerTime[unit] === null) return;
+
+          return (
+            <li className="timer__item" key={unit}>
+              <span className="timer__value">{timerTime[unit]}</span>
+              {unit}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="rightside__bg-icons-container">
