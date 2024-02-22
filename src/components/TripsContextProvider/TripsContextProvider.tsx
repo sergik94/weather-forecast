@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cities from '../../data/cities';
 import { Trip } from '../../types/Trip';
+import { getDateForCalendar } from '../../features/getDateForCalendar';
 
 interface ContextType {
   trips: Trip[];
@@ -9,11 +10,17 @@ interface ContextType {
   setCurrTrip: React.Dispatch<React.SetStateAction<Trip | null>>;
 }
 
+const now = new Date();
+const currDate = getDateForCalendar(now);
+const dateInFiveDays = getDateForCalendar(
+  new Date(now.getFullYear(), now.getMonth(), now.getDate() + 5),
+);
+
 const initialTrip = {
   id: 1,
   city: cities[0],
-  from: '2024-02-25',
-  to: '2024-02-29',
+  from: currDate,
+  to: dateInFiveDays,
 };
 
 export const TripsContext = React.createContext<ContextType>({

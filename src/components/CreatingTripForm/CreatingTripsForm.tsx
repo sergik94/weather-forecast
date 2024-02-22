@@ -4,13 +4,10 @@ import { Dropdown } from '../Dropdown';
 import cities from '../../data/cities';
 import { formatDate } from '../../features/formatDate';
 import { TripsContext } from '../TripsContextProvider/TripsContextProvider';
+import { getDateForCalendar } from '../../features/getDateForCalendar';
 
 type Props = {
   toggleCreatingTrip: () => void;
-};
-
-const getDateForCalendar = (date: Date) => {
-  return date.toJSON().split('T')[0];
 };
 
 export const CreatingTripForm: React.FC<Props> = ({ toggleCreatingTrip }) => {
